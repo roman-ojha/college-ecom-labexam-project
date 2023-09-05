@@ -7,3 +7,8 @@ from app import models
 def index(request):
     books = models.Book.objects.all()
     return render(request, 'index.html', context={'books': books})
+
+
+def book(request, slug):
+    book = models.Book.objects.filter(slug=slug).first()
+    return render(request, 'book.html', context={'book': book})

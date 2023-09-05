@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div style="border:1px solid black;">
+            <img style="height:250px; width:190px;" src="{{book.image_url}}" alt="{{book.slug}}" srcset=""/>
+            <h2 style="font-size:15px">{{book.title}} | {{book.author}} </h2>
+            <p style="font-size:10px;">Price: {{book.price}} </p>
+            <p>{{book.description}}</p>
+            <button>Add To Cart</button>
+        </div>
+
+
+{% endblock body %}
+
