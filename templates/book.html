@@ -7,7 +7,11 @@
             <h2 style="font-size:15px">{{book.title}} | {{book.author}} </h2>
             <p style="font-size:10px;">Price: {{book.price}} </p>
             <p>{{book.description}}</p>
-            <button>Add To Cart</button>
+            <form method="POST" action="/cart/{{book.slug}}">
+                {% csrf_token %}
+                <button type="submit" >Add To Cart</button>
+            </form>
+           
         </div>
 
 

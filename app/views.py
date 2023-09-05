@@ -12,3 +12,11 @@ def index(request):
 def book(request, slug):
     book = models.Book.objects.filter(slug=slug).first()
     return render(request, 'book.html', context={'book': book})
+
+
+def add_to_cart(request, slug):
+    book = models.Book.objects.filter(slug=slug).first()
+    response = render(request, 'book.html', context={'book': book})
+    if book != None:
+        response.set_cookie('cart', [book.slug])
+    return response
