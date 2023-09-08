@@ -23,4 +23,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('book/<str:slug>', views.book, name="book"),
     path('cart/<str:slug>', views.add_to_cart, name='add-to-cart'),
+    path('cart', views.get_cart, name='cart'),
+    path('checkout', views.checkout, name='checkout'),
 ]

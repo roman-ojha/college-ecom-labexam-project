@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1> Cart </h1>
+
+{% if carts %}
+{% for cart in carts %}
+
+<a href="/book/{{cart.slug}}" style="display=flex;justify-content:center;align-item:center;border:1px solid black;">
+            <img style="height:250px; width:190px;" src="{{cart.image_url}}" alt="{{cart.slug}}" srcset=""/>
+            <h2 style="font-size:15px">{{cart.title}} | {{cart.author}} </h2>
+            <p style="font-size:10px;">Price: {{cart.price}} </p>
+        </a>
+
+{% endfor %}
+{% endif %}
+
+<h1>Total: {{total}}</h1>
+<form action="/checkout">
+    <button type="submit">Checkout</button>
+</form>
+
+{% endblock body %}
